@@ -1,0 +1,19 @@
+To set up and running the API locally, follow the following steps-
+
+
+Step 1: Clone the Repository
+Step 2: Install Dependencies
+    pip install django djangorestframework
+Step 3: Configure the Database
+    python manage.py migrate
+Step 4: Run the Development Server
+    python manage.py runserver
+    Your API should now be accessible at http://localhost:8000/.
+Step 5: API Endpoints
+    List all To-Do items: http://127.0.0.1:8000/all-tasks/ (GET request)
+    Create a new To-Do item: http://127.0.0.1:8000/post-task/ (POST request)
+    Retrieve a specific To-Do item by ID: http://127.0.0.1:8000/get-task/ (GET request)
+    Update a To-Do item by ID: http://127.0.0.1:8000/update-task/ (PUT request)
+    Delete a To-Do item by ID: http://127.0.0.1:8000/delete-task/ (DELETE request)
+You can use tools like Postman to interact with these API endpoints.
+
