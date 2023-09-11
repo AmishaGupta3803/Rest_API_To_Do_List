@@ -47,6 +47,30 @@ def all_tasks(request):
         "data": serializer.data
     })
 
+@api_view(["GET"])
+def get_task(request):
+    try:
+        data = request.data
+        if not data.get('id'):
+            return Response({
+                "status": False,
+                "message": "id is required",
+                "data": {}
+            })
+        task = Task.objects.get(id=data.get('id'))
+        serializer = ToDoReadSerializer(task)
+        return Response({
+            "status": True,
+            "message": "Details are as follows.",
+            "data": serializer.data
+        })
+    except Exception as e:
+        print(e)
+        return Response({
+            "status": False,
+            "message": "Something went wrong."
+        })
+
 @api_view(["PATCH"])
 def update_task(request):
     try:
